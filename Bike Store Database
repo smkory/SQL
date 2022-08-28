@@ -1,0 +1,46 @@
+/** Bike Shop Inventory
+Helmets (2)(4) (2) ($30.00)
+Bikes (8) (10) (2) ($400.00)
+Bells (2) (5) (3) ($20.00)
+Bike Seats (3) (1) (0) ($50.00)
+Tires (4) (4) (0) ($100.00)
+Bike Shorts ($30.00)
+**/
+
+CREATE TABLE bike_shop_inventory (id INTEGER PRIMARY KEY, item TEXT, section TEXT, price INTEGER, popularity INTEGER);
+
+Insert into bike_shop_inventory VALUES (1,"Helmets", "Gear", 24.95, 2);
+Insert into bike_shop_inventory VALUES (2, "BIKES", "Equipment", 399.99, 8);
+Insert into bike_shop_inventory VALUES (3,"Bells", "Accessories", 18.99, 3);
+Insert into bike_shop_inventory VALUES (4, "Bike Seats", "Equipment", 49.99, 1);
+Insert into bike_shop_inventory VALUES (5, "Tires", "Equipment", 99.99, 4);
+Insert into bike_shop_inventory VALUES (6, "Bike Shorts", "Apparel", 29.85, 4);
+Insert into bike_shop_inventory VALUES (7, "Cycling Jersey", "Apparel", 59.99, 10);
+Insert into bike_shop_inventory VALUES (8, "Shoes", "Apparel", 79.99, 6);
+Insert into bike_shop_inventory VALUES (9, "Clips", "Gear", 19.99, 18);
+Insert into bike_shop_inventory VALUES (10, "Reflectors", "Accesssories", 7.99, 9);
+Insert into bike_shop_inventory VALUES (11, "Water Bottle Holder", "Accessories", 10.99, 14); 
+Insert into bike_shop_inventory VALUES (12, "Phone Clip", "Accessories", 18.99, 20);
+Insert into bike_shop_inventory VALUES (13, "Bike Bag", "Accessories", 29.99, 5);
+Insert into bike_shop_inventory VALUES (14, "Lock", "Gear", 29.99, 12); 
+Insert into bike_shop_inventory VALUES (15, "Road Kit", "Gear", 49.99, 10);
+
+
+
+--display the database ordered by price. 
+SELECT * FROM bike_shop_inventory
+ORDER BY price desc; 
+
+--what is the avg price of items in the bulk section? 
+SELECT AVG(price) "avg gear item price"
+FROM bike_shop_inventory
+where section='Gear'; 
+
+--what are the most 5 popular items? 
+SELECT item, price, popularity
+FROM bike_shop_inventory
+order by popularity desc
+limit 5; 
+
+
+Select ID , price sum from bike_shop_inventory;
